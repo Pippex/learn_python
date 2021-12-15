@@ -12,3 +12,9 @@ age2 = 15
 
 if age == age2:
     print(f"{name} tiene la misma edad que {name2}")
+
+elif age > age2:
+    print(f"{name} es mayor que {name2}")
+
+else:
+    print(f"{name} es menor que {name2}")
