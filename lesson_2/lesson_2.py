@@ -28,3 +28,6 @@ def comparate_ages(name_1, age_1, name_2, age_2):
 
 
 comparate_ages("Felipe", 15, "Constanza", 15)
+
+def hello_constanza():
+    print("Hello, my name is Constanza, I like to read, sing and eat")
