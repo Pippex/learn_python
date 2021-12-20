@@ -58,3 +58,23 @@ def multiples_range(start, finish, base):
     
 
 multiples_range(int(input()), int(input()), int(input()))
+
+def ignore_last(element):
+    for i in element:
+        if i == element[len(element)-1]:
+            continue
+        else:
+            print(i)
+    
+ignore_last([1,2,3,4,5,6,7,8])
+
+def number_letters(evaluate):
+    letters = len(evaluate)
+    for i in evaluate:
+        if i != " ":
+             continue
+        else:
+            letters -= 1
+    return letters
+
+print(number_letters("Hello World"))
