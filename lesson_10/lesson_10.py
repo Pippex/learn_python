@@ -42,3 +42,11 @@ while not(-1 < operation < 4) or type(operation) != int:
 
 print(calculator(num1, num2, operation))
 
+def i_hate_19(num1, num2, operation):
+    if calculator(num1, num2, operation):
+        raise ValueError("I hate 19")
+try:
+    i_hate_19(num1, num2, operation)
+
+except ValueError as fuck_you_19:
+    print(f"I hate the fucking 19 \n {fuck_you_19}")
