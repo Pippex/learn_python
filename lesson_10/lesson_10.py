@@ -15,18 +15,19 @@ def calculator(num1, num2, operation):
 
 num1 = "Hello"
 num2 = "World"
-choose_numbers_counter = False
 operation = 23
 
-while type(num1) != float or type(num2) != float:
-    if choose_numbers_counter:
-        print("Please input valid numbers")
+while True:
     try:
         num1 = float(input("Input a number please: "))
         num2 = float(input("Input a second number please: "))
+        break
+    
     except ValueError:
-        pass
-    choose_numbers_counter = True
+        print("Please enter valid numbers")
+
+    finally:
+        print("\n")
 
 choose_operation_counter = False
 
@@ -40,3 +41,4 @@ while not(-1 < operation < 4) or type(operation) != int:
     choose_operation_counter = True
 
 print(calculator(num1, num2, operation))
+
