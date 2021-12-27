@@ -11,13 +11,23 @@ class house():
         self.__water_service = True
         self.internet_service = False
         self.__electric_service = True
+        self.__money = 120
 
+    def __check_money(self, spend_amount):
+        can_spend = spend_amount <= self.__money
+        if can_spend:
+            self.__money -= spend_amount
+        return can_spend
 
     def contract_internet(self, *args):
         if len(args) == 1:
-            if type(args[0]) == bool:
-                self.internet_service = args[0]
-        
+            if self.internet_service != args[0] == True and self.__check_money(120):
+                self.internet_service = True
+            elif self.internet_service != args[0] == False:
+                self.internet_service = False
+                self.__check_money(-120)
+
+
         if self.internet_service:
             return "You have internet service"
         else:
@@ -35,7 +45,8 @@ class house():
                            "Trees":self.trees,
                            "Water Service":self.__water_service,
                            "Internet Service":self.internet_service,
-                           "Electric Service":self.__electric_service}
+                           "Electric Service":self.__electric_service,
+                           "Money": self.__money}
         
         return characteristics
     
@@ -48,4 +59,12 @@ print(my_house.color)
 #print(my_house.rooms)
 my_house.create_door()
 print(my_house.doors)
+print(my_house.status()["Money"])
 print(my_house.contract_internet(True))
+print(my_house.status()["Money"])
+print(my_house.contract_internet(True))
+print(my_house.status()["Money"])
+print(my_house.contract_internet(False))
+print(my_house.status()["Money"])
+print(my_house.contract_internet(False))
+print(my_house.status()["Money"])
