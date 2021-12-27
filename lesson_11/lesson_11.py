@@ -8,9 +8,9 @@ class house():
         self.color = "Red"
         self.doors = 3
         self.trees = 10
-        self.water_service = True
+        self.__water_service = True
         self.internet_service = False
-        self.electric_service = True
+        self.__electric_service = True
 
 
     def contract_internet(self, *args):
@@ -33,9 +33,9 @@ class house():
         characteristics = {"Surface":self.surface,
                            "Color":self.color,
                            "Trees":self.trees,
-                           "Water Service":self.water_service,
+                           "Water Service":self.__water_service,
                            "Internet Service":self.internet_service,
-                           "Electric Service":self.electric_service}
+                           "Electric Service":self.__electric_service}
         
         return characteristics
     
