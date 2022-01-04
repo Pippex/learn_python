@@ -45,12 +45,9 @@ fig, ((aa, ab), (ac, ad)) = plt.subplots(2,2, gridspec_kw={"width_ratios": [1,5]
 
 price_data_frame = pd.DataFrame(price, day)
 aa.hist(volume_profile, 30, orientation="horizontal", label="Volume Profile")
-plt.legend()
 ab.plot(price_data_frame, label="Price")
 ab.plot(price_data_frame.ewm(100, adjust=False).mean(), label="100 EMA")
-plt.legend()
 ac.hist(volume, 20, orientation="horizontal")
-plt.legend()
 ad.bar(day, volume, label="Volume")
 plt.legend()
 plt.show()
