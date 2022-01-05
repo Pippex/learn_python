@@ -12,7 +12,7 @@ class Trading_account():
 
 
     def trade_asset(self, price, quantity):
-        self.__actual_status = simple_functions.trade_asset(self.__actual_status[0], self.__actual_status[1], price, quantity)
+        self.__actual_status = trade_asset(self.__actual_status[0], self.__actual_status[1], price, quantity)
 
     def account_value(self, price):
         return self.__actual_status[0] + price * self.__actual_status[1]
