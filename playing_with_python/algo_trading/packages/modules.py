@@ -11,8 +11,8 @@ class Trading_account():
         self.__actual_status = [balance, 0]
 
 
-    def trade_asset(self, price, quantity):
-        self.__actual_status = trade_asset(self.__actual_status[0], self.__actual_status[1], price, quantity)
+    def trade_asset(self, list_price_quantity):
+        self.__actual_status = trade_asset(self.__actual_status[0], self.__actual_status[1], list_price_quantity[0], list_price_quantity[1])
 
     def account_value(self, price):
         return self.__actual_status[0] + price * self.__actual_status[1]
