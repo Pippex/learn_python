@@ -106,3 +106,11 @@ def trade_asset(balance, assets_owned, price, quantity):
     elif quantity < 0 and assets_owned < -quantity or quantity > 0 and balance < price*quantity:
         return [balance, assets_owned]
 
+
+def get_bollinger_bands(chart, periods=20, amplitude=2):
+    ema = chart.ewm(periods, adjust=False)
+    standard_deviation = ema.std()
+    upper_band = ema.mean() + amplitude*standard_deviation
+    lower_band = ema.mean() - amplitude*standard_deviation
+    
+    return [upper_band, lower_band]
