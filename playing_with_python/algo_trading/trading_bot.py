@@ -6,37 +6,8 @@ import numpy as np
 import datetime as dt
 
 
-class Trading_account():
-
-    def __init__(self, balance):
-        self.__initial_status = [balance, 0]
-        self.__actual_status = [balance, 0]
-
-
-    def trade_asset(self, price, quantity):
-        self.__actual_status = simple_functions.trade_asset(self.__actual_status[0], self.__actual_status[1], price, quantity)
-
-    def account_value(self, price):
-        return self.__actual_status[0] + price * self.__actual_status[1]
-
-
-    def account_worth_change(self, price):
-        return self.account_value(price)/(self.__initial_status[0]/100)-100
-
-
-    def actual_stats(self, argument):
-        return self.__actual_status[argument]
-
-
-    def account_performance(self, price):
-        print(f"The account started with ${self.__initial_status[0]} \
-now the account has ${self.__actual_status[0]} and {self.__actual_status[1]} assets, \
-the account is valued in ${self.account_value(price)}, \
-is {self.account_worth_change(price)}% up")
-
-
-ema_account = Trading_account(10000)
-ema_cross_account = Trading_account(10000)
+ema_account = simple_functions.Trading_account(10000)
+ema_cross_account = simple_functions.Trading_account(10000)
 
 ticker = "SPY"
 initial_date = dt.datetime(2015, 4, 1)
