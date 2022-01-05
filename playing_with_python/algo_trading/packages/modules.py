@@ -4,6 +4,36 @@ import numpy as np
 import datetime as dt
 import random as rd
 
+class Trading_account():
+
+    def __init__(self, balance):
+        self.__initial_status = [balance, 0]
+        self.__actual_status = [balance, 0]
+
+
+    def trade_asset(self, price, quantity):
+        self.__actual_status = simple_functions.trade_asset(self.__actual_status[0], self.__actual_status[1], price, quantity)
+
+    def account_value(self, price):
+        return self.__actual_status[0] + price * self.__actual_status[1]
+
+
+    def account_worth_change(self, price):
+        return self.account_value(price)/(self.__initial_status[0]/100)-100
+
+
+    def actual_stats(self, argument):
+        return self.__actual_status[argument]
+
+
+    def account_performance(self, price):
+        print(f"The account started with ${self.__initial_status[0]} \
+now the account has ${self.__actual_status[0]} and {self.__actual_status[1]} assets, \
+the account is valued in ${self.account_value(price)}, \
+is {self.account_worth_change(price)}% up")
+
+
+
 
 #This is a simple def only to make more easy the reading of the code
 def get_chart(ticker, initial_date, finish_date):
@@ -66,4 +96,13 @@ def random_chart(how_many_days, initial_price, min_movement, max_movement, max_v
     dataFrame["Price"] = pd.DataFrame(price)
     dataFrame["Volume"] = pd.DataFrame(volume)
     return dataFrame
+
+def trade_asset(balance, assets_owned, price, quantity):
+    if quantity <= 0 and assets_owned >= -quantity or quantity > 0 and balance >= price*quantity:
+        balance -= price * quantity
+        assets_owned += quantity
+        return [balance, assets_owned]
+    
+    elif quantity < 0 and assets_owned < -quantity or quantity > 0 and balance < price*quantity:
+        return [balance, assets_owned]
 
