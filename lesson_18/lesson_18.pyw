@@ -1,4 +1,7 @@
+from os import waitpid
 import tkinter
+from PIL import Image, ImageTk
+
 
 
 root = tkinter.Tk()
@@ -22,9 +25,55 @@ frame2.config(bg="#F5FFC6")
 frame3.config(width=100, height=600)
 frame3.config(bg="#F5FFC6")
 
-lgbt = tkinter.Label(frame2, text="Let's Go Brandooooooooooon T", fg="#000000", font=("Comic Sans MS", 50))
-#lgbt.place(x=300, y=300)
-lgbt.pack()
+communism_image = Image.open("communism.png")
+communism_image = communism_image.resize((200, 200))
+communism_image = ImageTk.PhotoImage(communism_image)
+communism_label = tkinter.Label(frame, image=communism_image)
+communism_label.place(x=100, y=100)
+
+real_communism_image = tkinter.PhotoImage(file="real_communism.gif")
+real_communism_label = tkinter.Label(frame, image=real_communism_image)
+real_communism_label.place(x=300, y=300)
+
+flag_8bit = Image.open("8bit_communist_flag.png")
+flag_8bit = flag_8bit.resize((200, 200))
+flag_8bit = ImageTk.PhotoImage(flag_8bit)
+flag_8bit_label = tkinter.Label(frame, image=flag_8bit)
+flag_8bit_label.place(x=100, y=300)
+
+best_dentist = Image.open("the_best_dentist_is_communist.png")
+best_dentist = best_dentist.resize((120, 200))
+best_dentist = ImageTk.PhotoImage(best_dentist)
+best_dentist_label = tkinter.Label(frame, image=best_dentist)
+best_dentist_label.place(x=300, y=100)
+
+what_are_you = tkinter.Label(frame, text="What are you?")
+what_are_you.place(x=510, y=500)
+
+to_gulag_entry = tkinter.Entry(frame)
+to_gulag_entry.place(x=600, y=500)
+
+#Creating a Quiz
+
+proletary = tkinter.Label(frame2, text="Are you a proletary?")
+proletary.grid(row=0,column=0, sticky="e")
+answer_proletary = tkinter.Entry(frame2, bg="#F7CB15", cursor="@communist.cur")
+answer_proletary.grid(row=0, column=1)
+
+production_means = tkinter.Label(frame2, text="Do you have any means of production?")
+production_means.grid(row=1, column=0, sticky="e")
+answer_production_means = tkinter.Entry(frame2, bg="#F55D3E", cursor="@communist.cur")
+answer_production_means.grid(row=1, column=1)
+
+many_chinas = tkinter.Label(frame2, text="How many Chinas exists?")
+many_chinas.grid(row=2, column=0, sticky="e")
+answer_many_chinas = tkinter.Entry(frame2, bg="#F7CB15", cursor="@communist.cur")
+answer_many_chinas.grid(row=2, column=1)
+
+tiananmmen_square = tkinter.Label(frame2, text="What happened in Tiananmmen Square in 1989?")
+tiananmmen_square.grid(row=3, column=0, sticky="e")
+answer_tiananmmen = tkinter.Entry(frame2, bg="#F55D3E", cursor="@communist.cur")
+answer_tiananmmen.grid(row=3, column=1)
 
 
 root.mainloop()
