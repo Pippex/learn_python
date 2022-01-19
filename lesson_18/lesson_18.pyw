@@ -70,6 +70,8 @@ many_chinas.grid(row=2, column=0, sticky="e")
 answer_many_chinas = tkinter.Entry(frame2, bg="#F7CB15", cursor="@communist.cur")
 answer_many_chinas.grid(row=2, column=1)
 
+#Adds a question about tiananmmen square 1989 in the upper and right frame
+
 tiananmmen_square = tkinter.Label(frame2, text="What happened in Tiananmmen Square in 1989?")
 tiananmmen_square.grid(row=3, column=0, sticky="e")
 answer_tiananmmen = tkinter.Entry(frame2, bg="#F55D3E", cursor="@communist.cur")
